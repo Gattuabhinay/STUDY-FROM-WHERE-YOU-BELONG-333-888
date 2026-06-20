@@ -3926,10 +3926,14 @@
         width: min(88vw, 366px);
         height: 100dvh;
         max-height: 100dvh;
+        z-index: 120;
         transition: transform 180ms ease;
       }
       body.sidebar-open .sidebar { transform: translateX(0); }
-      body.sidebar-open .overlay { display: block; }
+      body.sidebar-open .overlay {
+        display: block;
+        z-index: 110;
+      }
       .menu-toggle {
         display: grid;
         place-items: center;
@@ -4002,7 +4006,19 @@
       .brand-title { font-size: 19px; }
       .brand-subtitle { font-size: 14px; }
       .nav-item { min-height: 54px; font-size: 17px; }
-      .user-card { padding-inline: 20px; }
+      .user-card {
+        grid-template-columns: 44px minmax(0, 1fr);
+        padding-inline: 20px;
+      }
+      .user-card .status {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+      .user-meta {
+        font-size: 13px;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
       .stats, .placeholder-grid { grid-template-columns: 1fr; }
       .dashboard-focus .panel { padding: 16px; }
       .study-view,
