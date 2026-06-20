@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NNRG · Neural Access Portal</title>
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/djz4ulfhh/image/upload/v1779530882/nnrg_logo_transparent_mbag8j.png">
+<link rel="shortcut icon" href="https://res.cloudinary.com/djz4ulfhh/image/upload/v1779530882/nnrg_logo_transparent_mbag8j.png">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/djz4ulfhh/image/upload/v1779530882/nnrg_logo_transparent_mbag8j.png">
+<meta property="og:image" content="https://res.cloudinary.com/djz4ulfhh/image/upload/c_pad,w_1200,h_630,b_white,f_png/v1779530882/nnrg_logo_transparent_mbag8j.png">
+<meta property="og:image:secure_url" content="https://res.cloudinary.com/djz4ulfhh/image/upload/c_pad,w_1200,h_630,b_white,f_png/v1779530882/nnrg_logo_transparent_mbag8j.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NNRG Integrated Campus Logo">
+<meta property="og:title" content="NNRG CSM Portal">
+<meta property="og:description" content="Student portal for NNRG Integrated Campus - CSM Department">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://res.cloudinary.com/djz4ulfhh/image/upload/c_pad,w_1200,h_630,b_white,f_png/v1779530882/nnrg_logo_transparent_mbag8j.png">
+<meta name="twitter:title" content="NNRG CSM Portal">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Exo+2:ital,wght@0,100;0,300;0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   NNRG NEURAL NEXUS — GOD MODE LOGIN
+   Designer: Claude GOD MODE
+   Version: MAXIMUM
+═══════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── THEME TOKENS ─── */
+:root {
+  --bg: #020510;
+  --bg2: #050b1a;
+  --surface: rgba(5, 15, 35, 0.85);
+  --surface2: rgba(10, 20, 50, 0.6);
+  --border: rgba(0, 220, 255, 0.12);
+  --border-hot: rgba(0, 220, 255, 0.5);
+
+  --neon: #00dcff;
+  --neon2: #ff2d6b;
+  --neon3: #a855f7;
+  --neon4: #00ff88;
+  --gold: #ffd700;
+
+  --text: #e8f4ff;
+  --text2: rgba(180, 210, 255, 0.55);
+  --text3: rgba(120, 170, 220, 0.4);
+
+  --glow-c: 0 0 20px rgba(0,220,255,0.4), 0 0 60px rgba(0,220,255,0.15);
+  --glow-p: 0 0 20px rgba(168,85,247,0.4);
+  --glow-r: 0 0 20px rgba(255,45,107,0.4);
+
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease2: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --bg: #f0f4ff;
+  --bg2: #e4eaf8;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface2: rgba(240, 245, 255, 0.7);
+  --border: rgba(0, 100, 200, 0.12);
+  --border-hot: rgba(0, 100, 200, 0.4);
+  --neon: #0066cc;
+  --neon2: #cc0044;
+  --neon3: #7700cc;
+  --neon4: #00aa55;
+  --text: #071428;
+  --text2: rgba(7, 20, 40, 0.55);
+  --text3: rgba(7, 20, 40, 0.3);
+  --glow-c: 0 0 20px rgba(0,100,200,0.2);
+  --glow-p: 0 0 20px rgba(119,0,204,0.15);
+  --glow-r: 0 0 20px rgba(204,0,68,0.15);
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  cursor: none;
+  transition: background 0.6s var(--ease), color 0.6s var(--ease);
+}
+
+[data-theme="light"] body { cursor: auto; }
+
+@media (pointer: coarse) {
+  body { cursor: auto !important; }
+  #cursor-dot, #cursor-ring { display: none !important; }
+}
+
+/* ═══ CUSTOM CURSOR ═══ */
+#cursor-dot {
+  position: fixed;
+  width: 6px; height: 6px;
+  background: var(--neon);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s, background 0.15s;
+  box-shadow: 0 0 10px var(--neon), 0 0 30px var(--neon);
+}
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(0, 220, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: all 0.12s var(--ease);
+}
+body.hovering #cursor-dot { width: 12px; height: 12px; background: var(--neon2); box-shadow: 0 0 15px var(--neon2); }
+body.hovering #cursor-ring { width: 56px; height: 56px; border-color: rgba(255,45,107,0.5); }
+[data-theme="light"] #cursor-dot, [data-theme="light"] #cursor-ring { display: none; }
+
+/* ═══ NEURAL CANVAS ═══ */
+#neural-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ═══ NOISE OVERLAY ═══ */
+.noise {
+  position: fixed; inset: 0; z-index: 1;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+[data-theme="light"] .noise { opacity: 0.04; }
+
+/* ═══ SCAN LINE ═══ */
+.scanline {
+  position: fixed; inset: 0; z-index: 2;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(0, 220, 255, 0.012) 3px, rgba(0, 220, 255, 0.012) 4px
+  );
+  pointer-events: none;
+  animation: scanMove 8s linear infinite;
+}
+@keyframes scanMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+[data-theme="light"] .scanline { opacity: 0; }
+
+/* ═══ MOVING SCAN BAR ═══ */
+.scan-bar {
+  position: fixed;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  opacity: 0.3;
+  z-index: 3;
+  pointer-events: none;
+  animation: scanBar 6s ease-in-out infinite;
+}
+@keyframes scanBar {
+  0% { top: -2px; opacity: 0; }
+  5% { opacity: 0.3; }
+  95% { opacity: 0.15; }
+  100% { top: 100vh; opacity: 0; }
+}
+[data-theme="light"] .scan-bar { opacity: 0; }
+
+/* ═══ VIGNETTE ═══ */
+.vignette {
+  position: fixed; inset: 0; z-index: 2;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, rgba(0,2,10,0.7) 100%);
+  pointer-events: none;
+}
+[data-theme="light"] .vignette {
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, rgba(200,210,240,0.5) 100%);
+}
+
+/* ═══ THEME TOGGLE ═══ */
+#theme-btn {
+  position: fixed;
+  top: 24px; right: 24px;
+  z-index: 9999;
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  transition: all 0.4s var(--ease);
+  box-shadow: var(--glow-c), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+#theme-btn:hover {
+  border-color: var(--border-hot);
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* ═══ MAIN LAYOUT ═══ */
+.page {
+  position: relative; z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+/* ═══ LEFT PANEL — HERO ═══ */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 960px) { .hero { display: none; } }
+
+/* Hero decorative lines */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(to bottom,
+    transparent,
+    var(--neon) 20%,
+    var(--neon3) 50%,
+    var(--neon2) 80%,
+    transparent
+  );
+  opacity: 0.3;
+  animation: lineGlow 4s ease-in-out infinite;
+}
+@keyframes lineGlow { 0%,100%{opacity:0.2} 50%{opacity:0.6} }
+
+/* NNRG LOGO — SVG Forged */
+.logo-forge {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.logo-hex {
+  width: 160px; height: 160px;
+  position: relative;
+}
+
+.logo-svg {
+  width: 100%;
+  height: 100%;
+  animation: logoSpin 20s linear infinite;
+  filter: drop-shadow(0 0 20px var(--neon)) drop-shadow(0 0 60px rgba(0,220,255,0.3));
+}
+[data-theme="light"] .logo-svg { filter: drop-shadow(0 0 15px rgba(0,100,200,0.4)); animation-play-state: paused; }
+
+@keyframes logoSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.logo-center {
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  letter-spacing: 4px;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 30px var(--neon), 0 0 60px rgba(0,220,255,0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.logo-sub-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  color: var(--neon);
+  margin-top: 2px;
+}
+
+/* Orbiting dot */
+.orbit-container {
+  position: absolute;
+  inset: -20px;
+  animation: orbitRotate 6s linear infinite;
+}
+@keyframes orbitRotate { to { transform: rotate(360deg); } }
+
+.orbit-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--neon2);
+  box-shadow: 0 0 12px var(--neon2), 0 0 30px var(--neon2);
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+}
+
+.orbit-container2 {
+  position: absolute;
+  inset: -35px;
+  animation: orbitRotate 10s linear infinite reverse;
+}
+.orbit-dot2 {
+  position: absolute;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--neon3);
+  box-shadow: 0 0 8px var(--neon3);
+  top: 50%; right: 0;
+  transform: translateY(-50%);
+}
+
+/* Hero Typography */
+.hero-eyebrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--neon);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.8;
+  animation: fadeInUp 1s var(--ease) 0.2s both;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 6vw, 88px);
+  line-height: 0.9;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s var(--ease) 0.35s both;
+}
+
+.hero-title .line1 { 
+  display: block;
+  color: var(--text);
+}
+.hero-title .line2 {
+  display: block;
+  background: linear-gradient(135deg, var(--neon), var(--neon3), var(--neon2));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 4s ease infinite, fadeInUp 1s var(--ease) 0.35s both;
+}
+@keyframes gradientFlow {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--text2);
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  max-width: 320px;
+  animation: fadeInUp 1s var(--ease) 0.5s both;
+}
+
+/* Stat badges */
+.hero-stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 48px;
+  animation: fadeInUp 1s var(--ease) 0.65s both;
+}
+
+.stat {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s var(--ease);
+}
+.stat:hover {
+  border-color: var(--border-hot);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-c);
+}
+
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--neon);
+  letter-spacing: 2px;
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ═══ RIGHT PANEL — LOGIN ═══ */
+.login-side {
+  width: 520px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+  position: relative;
+}
+@media (max-width: 960px) {
+  .login-side { width: 100%; padding: 32px 20px; }
+}
+
+/* ═══ MOBILE HEADER ═══ */
+.mobile-header {
+  display: none;
+  text-align: center;
+  margin-bottom: 32px;
+}
+@media (max-width: 960px) {
+  .mobile-header { display: block; }
+}
+
+.mob-logo-box {
+  width: 80px; height: 80px;
+  background: linear-gradient(145deg, #e84a1a, #a82d08);
+  border-radius: 22px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 40px rgba(232,74,26,0.5), 0 8px 30px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+.mob-logo-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  border-radius: inherit;
+}
+.mob-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.mob-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--neon);
+}
+
+/* ═══ THE CARD ═══ */
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 44px 40px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(40px) saturate(200%);
+  box-shadow:
+    0 0 0 1px rgba(0,220,255,0.05),
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 80px rgba(0,220,255,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  animation: cardReveal 1.2s var(--ease2) 0.1s both;
+  transition: background 0.5s, border-color 0.5s, box-shadow 0.5s;
+}
+
+[data-theme="light"] .card {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,100,200,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Card top glow edge */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--neon) 30%,
+    var(--neon3) 60%,
+    transparent
+  );
+  animation: edgeGlow 3s ease-in-out infinite;
+}
+@keyframes edgeGlow { 0%,100%{opacity:0.4}50%{opacity:1} }
+
+/* Corner accents */
+.card .corner {
+  position: absolute;
+  width: 20px; height: 20px;
+  border-color: var(--neon);
+  border-style: solid;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.card:hover .corner { opacity: 0.8; }
+.card .corner.tl { top: 12px; left: 12px; border-width: 1px 0 0 1px; border-radius: 4px 0 0 0; }
+.card .corner.tr { top: 12px; right: 12px; border-width: 1px 1px 0 0; border-radius: 0 4px 0 0; }
+.card .corner.bl { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; border-radius: 0 0 0 4px; }
+.card .corner.br { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; border-radius: 0 0 4px 0; }
+
+/* Card header */
+.card-head {
+  margin-bottom: 36px;
+  animation: fadeInUp 0.8s var(--ease) 0.4s both;
+}
+
+.access-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0,220,255,0.06);
+  border: 1px solid rgba(0,220,255,0.15);
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+.badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--neon4);
+  box-shadow: 0 0 8px var(--neon4);
+  animation: blinkDot 2s ease-in-out infinite;
+}
+@keyframes blinkDot { 0%,100%{opacity:1}50%{opacity:0.3} }
+
+.badge-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--neon);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.card-title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--neon), var(--neon3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--text2);
+  letter-spacing: 0.15em;
+}
+
+/* ═══ FORM ═══ */
+.auth-mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: -16px 0 26px;
+  padding: 5px;
+  border: 1px solid rgba(0,220,255,0.14);
+  border-radius: 12px;
+  background: rgba(0,220,255,0.045);
+  animation: fadeInUp 0.7s var(--ease) 0.48s both;
+}
+
+.auth-mode-btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  min-height: 46px;
+  background: transparent;
+  color: rgba(180,215,255,0.62);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.28s var(--ease);
+}
+
+.auth-mode-btn:hover {
+  color: #fff;
+  border-color: rgba(0,220,255,0.28);
+}
+
+.auth-mode-btn.active {
+  color: #fff;
+  border-color: rgba(0,220,255,0.45);
+  background: linear-gradient(135deg, rgba(0,220,255,0.16), rgba(168,85,247,0.16));
+  box-shadow: 0 0 22px rgba(0,220,255,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.auth-mode-note {
+  margin: -12px 0 22px;
+  min-height: 18px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: rgba(100,180,255,0.55);
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  animation: fadeInUp 0.7s var(--ease) 0.52s both;
+}
+
+.mode-hidden {
+  display: none !important;
+}
+
+.form { position: relative; z-index: 1; }
+
+.field {
+  margin-bottom: 20px;
+  animation: fadeInUp 0.7s var(--ease) both;
+  position: relative;
+}
+.field:nth-child(1) { animation-delay: 0.55s; }
+.field:nth-child(2) { animation-delay: 0.62s; }
+.field:nth-child(3) { animation-delay: 0.69s; }
+.field:nth-child(4) { animation-delay: 0.76s; }
+
+/* ── LABEL row: icon + text + accent line ── */
+.field-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: rgba(150, 200, 255, 0.75);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  transition: color 0.3s, letter-spacing 0.3s;
+}
+.field-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px; height: 2px;
+  background: linear-gradient(90deg, var(--neon), var(--neon3));
+  border-radius: 2px;
+  flex-shrink: 0;
+  transition: width 0.3s var(--ease);
+}
+.field:focus-within .field-label {
+  color: var(--neon);
+  letter-spacing: 0.35em;
+}
+.field:focus-within .field-label::before {
+  width: 28px;
+}
+
+/* ── Shell: glowing border container ── */
+.input-shell {
+  position: relative;
+  border-radius: 14px;
+  padding: 1.5px;
+  background: linear-gradient(135deg,
+    rgba(0,220,255,0.18),
+    rgba(168,85,247,0.12),
+    rgba(0,220,255,0.08)
+  );
+  transition: background 0.4s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.field:focus-within .input-shell {
+  background: linear-gradient(135deg, var(--neon), var(--neon3), var(--neon2));
+  box-shadow: 0 0 0 3px rgba(0,220,255,0.10), 0 8px 32px rgba(0,220,255,0.15);
+}
+.field-shell-error .input-shell {
+  background: linear-gradient(135deg, var(--neon2), #ff6b9d) !important;
+  box-shadow: 0 0 0 3px rgba(255,45,107,0.15) !important;
+}
+
+/* ── Inner bg ── */
+.input-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 12.5px;
+  overflow: hidden;
+  background: rgba(4, 12, 30, 0.92);
+  display: flex;
+  align-items: center;
+}
+[data-theme="light"] .input-inner {
+  background: rgba(235, 242, 255, 0.95);
+}
+
+/* ── Field icon chip ── */
+.field-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 52px;
+  flex-shrink: 0;
+  font-size: 16px;
+  border-right: 1px solid rgba(0,220,255,0.10);
+  background: rgba(0,220,255,0.04);
+  transition: background 0.3s, border-color 0.3s;
+}
+.field:focus-within .field-icon {
+  background: rgba(0,220,255,0.09);
+  border-color: rgba(0,220,255,0.22);
+}
+
+/* ── Input ── */
+.inp {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 15px 16px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ddeeff;
+  caret-color: var(--neon);
+  letter-spacing: 0.04em;
+  transition: all 0.3s;
+}
+[data-theme="light"] .inp { color: #0a1830; }
+
+.inp::placeholder {
+  color: rgba(100, 160, 220, 0.45);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+[data-theme="light"] .inp::placeholder { color: rgba(20,60,120,0.4); }
+
+#roll { text-transform: uppercase; letter-spacing: 0.15em; }
+
+/* ── Eye button ── */
+.eye-btn {
+  background: none; border: none;
+  cursor: pointer;
+  color: rgba(100,180,255,0.5);
+  font-size: 17px;
+  padding: 4px 14px 4px 4px;
+  transition: color 0.2s, transform 0.2s;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.eye-btn:hover { color: var(--neon); transform: scale(1.2); }
+
+/* ── Department select ── */
+.inp-select {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 15px 16px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(100, 160, 220, 0.55);
+  letter-spacing: 0.04em;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.inp-select.has-value { color: #ddeeff; }
+[data-theme="light"] .inp-select { color: rgba(20,60,120,0.5); }
+[data-theme="light"] .inp-select.has-value { color: #0a1830; }
+
+.inp-select option {
+  background: #07122a;
+  color: #ddeeff;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+}
+[data-theme="light"] .inp-select option { background: #eef2ff; color: #0a1830; }
+
+.select-arrow {
+  position: absolute;
+  right: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0,220,255,0.5);
+  font-size: 9px;
+  pointer-events: none;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+}
+.field:focus-within .select-arrow { color: var(--neon); }
+
+/* ── Error / success states ── */
+.inp-error { color: #ff9ab8 !important; }
+.inp-success { color: #7affc8 !important; }
+[data-theme="light"] .inp-error { color: #cc0044 !important; }
+[data-theme="light"] .inp-success { color: #007744 !important; }
+
+/* Error state */
+.inp-error { background: rgba(255,45,107,0.06) !important; }
+.field-msg {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  margin-top: 7px;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.2s;
+  pointer-events: none;
+  padding-left: 4px;
+}
+.field-msg.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.field-msg.hint { color: rgba(0,220,255,0.5); }
+.field-msg.error { color: #ff6b9d; }
+
+/* ═══ SUBMIT BUTTON — THE BEAST ═══ */
+.cta-wrap {
+  margin-top: 8px;
+  animation: fadeInUp 0.7s var(--ease) 0.85s both;
+}
+
+.cta {
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  transition: transform 0.2s var(--ease);
+}
+.cta:hover { transform: translateY(-3px); }
+.cta:active { transform: translateY(0) scale(0.99); }
+
+/* Multi-layer gradient button */
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg,
+    #0a1540 0%,
+    #1a0a60 25%,
+    #5b21b6 50%,
+    #0070cc 75%,
+    #00dcff 100%
+  );
+  background-size: 300% 300%;
+  animation: ctaGrad 4s ease infinite;
+}
+.cta:hover .cta-bg { animation-duration: 2s; }
+
+@keyframes ctaGrad {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Button shine sweep */
+.cta-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    transparent 35%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s;
+}
+.cta:hover .cta-shine { transform: translateX(100%); }
+
+/* Button content */
+.cta-content {
+  position: relative; z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 17px 24px;
+}
+
+.cta-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0,220,255,0.5);
+}
+
+.cta-icon {
+  font-size: 18px;
+  transition: transform 0.3s var(--ease);
+}
+.cta:hover .cta-icon { transform: translateX(4px); }
+
+.cta-spinner {
+  display: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.cta.loading .cta-text, .cta.loading .cta-icon { display: none; }
+.cta.loading .cta-spinner { display: block; }
+.cta.loading { pointer-events: none; }
+
+/* Bottom glow on button */
+.cta-glow {
+  position: absolute;
+  bottom: -10px; left: 20%; right: 20%;
+  height: 20px;
+  background: var(--neon3);
+  filter: blur(15px);
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+.cta:hover .cta-glow { opacity: 0.4; }
+
+/* ═══ DIVIDER ═══ */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 28px 0 22px;
+  animation: fadeInUp 0.7s var(--ease) 0.9s both;
+}
+.div-line { flex: 1; height: 1px; background: var(--border); }
+.div-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text3);
+  white-space: nowrap;
+}
+
+/* ═══ INFO PANEL ═══ */
+.info-panel {
+  background: rgba(0,220,255,0.025);
+  border: 1px solid rgba(0,220,255,0.08);
+  border-radius: 16px;
+  padding: 18px;
+  animation: fadeInUp 0.7s var(--ease) 0.95s both;
+  transition: all 0.4s;
+}
+[data-theme="light"] .info-panel { background: rgba(0,100,200,0.04); border-color: rgba(0,100,200,0.1); }
+.info-panel:hover { border-color: rgba(0,220,255,0.15); }
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+
+.info-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.i-blue { background: rgba(0,220,255,0.1); }
+.i-purple { background: rgba(168,85,247,0.12); }
+.i-green { background: rgba(0,255,136,0.1); }
+
+.info-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text2);
+  line-height: 1.5;
+  padding-top: 4px;
+}
+.info-text strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ═══ STATUS ROW ═══ */
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  animation: fadeInUp 0.7s var(--ease) 1.05s both;
+}
+.status-led {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--neon4);
+  box-shadow: 0 0 10px var(--neon4), 0 0 20px rgba(0,255,136,0.3);
+  animation: ledPulse 2.5s ease-in-out infinite;
+}
+@keyframes ledPulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.6); opacity: 0.4; }
+}
+.status-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text3);
+}
+
+/* ═══ TOAST ═══ */
+.toast {
+  position: fixed;
+  bottom: 28px; left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  z-index: 99999;
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s var(--ease);
+  white-space: nowrap;
+  max-width: 90vw;
+}
+.toast.err {
+  background: rgba(255,45,107,0.1);
+  border: 1px solid rgba(255,45,107,0.3);
+  color: var(--neon2);
+  box-shadow: 0 0 30px rgba(255,45,107,0.15);
+}
+.toast.ok {
+  background: rgba(0,255,136,0.08);
+  border: 1px solid rgba(0,255,136,0.25);
+  color: var(--neon4);
+  box-shadow: 0 0 30px rgba(0,255,136,0.15);
+}
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ CARD 3D TILT ═══ */
+@media (hover: hover) and (min-width: 960px) {
+  .card { transition: transform 0.15s ease, background 0.5s, border-color 0.5s, box-shadow 0.5s; }
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 480px) {
+  .login-side { padding: 24px 16px 48px; }
+  .card { padding: 32px 24px; }
+}
+
+/* ═══ GLITCH EFFECT ═══ */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+.glitch::before {
+  color: var(--neon);
+  animation: glitch-a 5s 0.5s infinite;
+  text-shadow: none;
+}
+.glitch::after {
+  color: var(--neon2);
+  animation: glitch-b 5s 1s infinite;
+  text-shadow: none;
+}
+
+@keyframes glitch-a {
+  0%,92%,100% { clip-path: polygon(0 0,100% 0,100% 0,0 0); transform: translateX(0); }
+  93% { clip-path: polygon(0 10%,100% 10%,100% 22%,0 22%); transform: translateX(-3px); }
+  94% { clip-path: polygon(0 55%,100% 55%,100% 70%,0 70%); transform: translateX(3px); }
+  95% { clip-path: polygon(0 5%,100% 5%,100% 12%,0 12%); transform: translateX(-2px); }
+  96% { clip-path: polygon(0 0,100% 0,100% 0,0 0); transform: translateX(0); }
+}
+@keyframes glitch-b {
+  0%,90%,100% { clip-path: polygon(0 0,100% 0,100% 0,0 0); transform: translateX(0); }
+  91% { clip-path: polygon(0 40%,100% 40%,100% 55%,0 55%); transform: translateX(3px); }
+  92% { clip-path: polygon(0 75%,100% 75%,100% 88%,0 88%); transform: translateX(-3px); }
+  93% { clip-path: polygon(0 0,100% 0,100% 0,0 0); transform: translateX(0); }
+}
+
+/* ═══ LIGHT MODE OVERRIDES ═══ */
+[data-theme="light"] .logo-text {
+  text-shadow: 0 0 20px rgba(0,100,200,0.3);
+  color: #071428;
+}
+[data-theme="light"] .stat { background: rgba(255,255,255,0.8); }
+[data-theme="light"] .hero-title .line1 { color: #071428; }
+
+/* ══════════════════════════════════════
+   FORGOT PASSWORD BUTTON
+══════════════════════════════════════ */
+.forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: -6px 0 18px;
+}
+.forgot-btn {
+  background: none; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; letter-spacing: 0.15em;
+  color: var(--neon); text-transform: uppercase;
+  position: relative; overflow: hidden;
+  transition: all 0.3s var(--ease);
+  border: 1px solid rgba(0,220,255,0.2);
+  background: rgba(0,220,255,0.05);
+}
+.forgot-btn:hover {
+  color: #fff; border-color: rgba(0,220,255,0.6);
+  box-shadow: 0 0 18px rgba(0,220,255,0.25), 0 0 40px rgba(0,220,255,0.08);
+  transform: translateY(-1px);
+  background: rgba(0,220,255,0.1);
+}
+.forgot-icon { font-size: 12px; animation: fpIconPulse 2s ease-in-out infinite; }
+@keyframes fpIconPulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.forgot-arrow { font-size: 13px; transition: transform 0.3s var(--ease); display: inline-block; }
+.forgot-btn:hover .forgot-arrow { transform: translateX(4px); }
+
+/* ══════════════════════════════════════
+   FORGOT PASSWORD MODAL
+══════════════════════════════════════ */
+.fp-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,2,15,0.78);
+  backdrop-filter: blur(8px);
+  z-index: 9000; opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+.fp-overlay.open { opacity: 1; pointer-events: all; }
+.fp-modal {
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%, -46%) scale(0.94);
+  z-index: 9001;
+  width: min(480px, calc(100vw - 32px));
+  background: linear-gradient(160deg, rgba(4,12,35,0.98), rgba(8,18,50,0.98));
+  border: 1px solid rgba(0,220,255,0.22);
+  border-radius: 24px; padding: 44px 38px 38px;
+  box-shadow: 0 0 0 1px rgba(0,220,255,0.06), 0 40px 100px rgba(0,0,0,0.75), 0 0 80px rgba(0,220,255,0.07), inset 0 1px 0 rgba(255,255,255,0.06);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  overflow: hidden;
+}
+.fp-modal::before {
+  content: ''; position: absolute;
+  top: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon) 30%, var(--neon3) 70%, transparent);
+  opacity: 0.6;
+}
+.fp-modal.open { opacity: 1; pointer-events: all; transform: translate(-50%, -50%) scale(1); }
+.fp-corner { position: absolute; width: 16px; height: 16px; border-color: var(--neon); border-style: solid; opacity: 0.5; }
+.fp-tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; border-radius: 3px 0 0 0; }
+.fp-tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; border-radius: 0 3px 0 0; }
+.fp-bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; border-radius: 0 0 0 3px; }
+.fp-br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; border-radius: 0 0 3px 0; }
+.fp-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(0,220,255,0.15);
+  color: rgba(150,200,255,0.6); font-size: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.fp-close:hover { background: rgba(255,45,107,0.15); border-color: rgba(255,45,107,0.4); color: var(--neon2); transform: rotate(90deg); }
+.fp-step { transition: opacity 0.3s; }
+.fp-step-hidden { display: none; }
+.fp-icon-wrap { position: relative; width: 64px; height: 64px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; }
+.fp-icon-ring { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(0,220,255,0.35); animation: fpRingSpin 6s linear infinite; background: conic-gradient(from 0deg, transparent 60%, rgba(0,220,255,0.3) 100%); }
+@keyframes fpRingSpin { to { transform: rotate(360deg); } }
+.fp-icon-core { font-size: 28px; z-index: 1; filter: drop-shadow(0 0 12px rgba(0,220,255,0.6)); }
+.fp-title { font-family: 'Exo 2', sans-serif; font-weight: 900; font-style: italic; font-size: 26px; color: var(--text); text-align: center; margin-bottom: 10px; letter-spacing: -0.3px; }
+.fp-sub { font-family: 'Rajdhani', sans-serif; font-size: 14px; color: rgba(150,200,255,0.6); text-align: center; line-height: 1.5; margin-bottom: 28px; letter-spacing: 0.03em; }
+.fp-field { margin-bottom: 20px; }
+.fp-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 0.28em; color: rgba(150,200,255,0.7); display: block; margin-bottom: 10px; }
+.fp-input-shell { border-radius: 14px; padding: 1.5px; background: linear-gradient(135deg, rgba(0,220,255,0.2), rgba(168,85,247,0.12)); box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: background 0.3s, box-shadow 0.3s; }
+.fp-input-shell:focus-within { background: linear-gradient(135deg, var(--neon), var(--neon3)); box-shadow: 0 0 0 3px rgba(0,220,255,0.12), 0 8px 28px rgba(0,220,255,0.18); }
+.fp-err-shell { background: linear-gradient(135deg, var(--neon2), #ff6b9d) !important; }
+.fp-input-inner { border-radius: 12.5px; background: rgba(4,12,30,0.95); display: flex; align-items: center; overflow: hidden; }
+.fp-field-icon { width: 44px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 16px; border-right: 1px solid rgba(0,220,255,0.1); background: rgba(0,220,255,0.04); flex-shrink: 0; }
+.fp-inp { flex: 1; background: transparent; border: none; outline: none; padding: 15px 16px; font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 600; color: #ddeeff; caret-color: var(--neon); letter-spacing: 0.15em; text-transform: uppercase; }
+.fp-inp::placeholder { color: rgba(100,160,220,0.4); font-family: 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 400; }
+.fp-msg { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #ff6b9d; margin-top: 8px; min-height: 16px; padding-left: 4px; }
+.fp-cta { width: 100%; border: none; cursor: pointer; border-radius: 14px; position: relative; overflow: hidden; background: transparent; padding: 0; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: transform 0.2s var(--ease); height: 54px; }
+.fp-cta:hover { transform: translateY(-2px); }
+.fp-cta-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0a1540, #1a0a60 30%, #5b21b6 60%, #00dcff); background-size: 300% 300%; animation: ctaGrad 4s ease infinite; }
+.fp-cta-text { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; color: #fff; position: relative; z-index: 2; text-shadow: 0 0 20px rgba(0,220,255,0.5); }
+.fp-cta-icon { font-size: 16px; position: relative; z-index: 2; color: #fff; transition: transform 0.3s var(--ease); }
+.fp-cta:hover .fp-cta-icon { transform: translateX(5px); }
+.fp-spinner { display: none; width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.25); border-top-color: #fff; animation: spin 0.7s linear infinite; position: relative; z-index: 2; }
+.fp-cta.fp-loading .fp-cta-text, .fp-cta.fp-loading .fp-cta-icon { display: none; }
+.fp-cta.fp-loading .fp-spinner { display: block; }
+.fp-note { display: flex; align-items: center; gap: 8px; font-family: 'Share Tech Mono', monospace; font-size: 10px; color: rgba(100,180,255,0.45); letter-spacing: 0.08em; justify-content: center; }
+.fp-note-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--neon4); box-shadow: 0 0 6px var(--neon4); flex-shrink: 0; }
+.fp-success-icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,220,255,0.1)); border: 2px solid rgba(0,255,136,0.4); display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--neon4); margin: 0 auto 24px; box-shadow: 0 0 30px rgba(0,255,136,0.2); animation: successPop 0.5s var(--ease2) both; }
+@keyframes successPop { from{transform:scale(0.5);opacity:0} to{transform:scale(1);opacity:1} }
+.fp-instruction-box { background: rgba(0,220,255,0.04); border: 1px solid rgba(0,220,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 12px; }
+.fp-instruction-row { display: flex; align-items: flex-start; gap: 14px; }
+.fp-inst-num { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--neon); opacity: 0.5; line-height: 1; flex-shrink: 0; min-width: 28px; }
+.fp-inst-text { font-family: 'Rajdhani', sans-serif; font-size: 14px; color: rgba(180,215,255,0.75); line-height: 1.5; padding-top: 2px; }
+.fp-inst-text strong { color: #ddeeff; font-weight: 700; }
+.rp-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,2,15,0.82);
+  backdrop-filter: blur(10px);
+  z-index: 9100; opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+.rp-overlay.open { opacity: 1; pointer-events: all; }
+.rp-modal {
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%, -46%) scale(0.94);
+  z-index: 9101;
+  width: min(500px, calc(100vw - 32px));
+  background: linear-gradient(160deg, rgba(4,12,35,0.98), rgba(8,18,50,0.98));
+  border: 1px solid rgba(0,220,255,0.24);
+  border-radius: 24px; padding: 42px 38px 34px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.75), 0 0 80px rgba(0,220,255,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  overflow: hidden;
+}
+.rp-modal.open { opacity: 1; pointer-events: all; transform: translate(-50%, -50%) scale(1); }
+.rp-modal::before {
+  content: ''; position: absolute;
+  top: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon), var(--neon3), transparent);
+  opacity: 0.62;
+}
+.rp-field { margin-bottom: 16px; }
+.rp-modal .fp-field-icon {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.rp-inp {
+  flex: 1; background: transparent; border: none; outline: none;
+  padding: 15px 16px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: #ddeeff; caret-color: var(--neon);
+}
+.rp-inp::placeholder {
+  color: rgba(100,160,220,0.4);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+.rp-msg {
+  min-height: 18px;
+  margin: 2px 0 14px;
+  color: #ff8caf;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+.rp-security-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(0,220,255,0.12);
+  border-radius: 14px;
+  background: rgba(0,220,255,0.04);
+  color: rgba(180,215,255,0.68);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- Neural Canvas -->
+<canvas id="neural-bg"></canvas>
+
+<!-- Overlays -->
+<div class="noise"></div>
+<div class="scanline"></div>
+<div class="scan-bar"></div>
+<div class="vignette"></div>
+
+<!-- Theme Toggle -->
+<button id="theme-btn" aria-label="Toggle theme" title="Switch theme">🌙</button>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span id="toast-icon"></span>
+  <span id="toast-msg"></span>
+</div>
+
+<!-- Page -->
+<div class="page">
+
+  <!-- LEFT HERO -->
+  <div class="hero">
+
+    <!-- Logo -->
+    <div class="logo-forge">
+      <div class="logo-hex">
+        <!-- Spinning SVG ring -->
+        <svg class="logo-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer dashed ring -->
+          <circle cx="80" cy="80" r="74" stroke="rgba(0,220,255,0.2)" stroke-width="1" stroke-dasharray="4 8"/>
+          <!-- Tick marks -->
+          <circle cx="80" cy="80" r="68" stroke="rgba(0,220,255,0.08)" stroke-width="8"/>
+          <!-- Bright arcs -->
+          <path d="M80 12 A68 68 0 0 1 148 80" stroke="url(#arcGrad1)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M148 80 A68 68 0 0 1 80 148" stroke="url(#arcGrad2)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          <path d="M12 80 A68 68 0 0 1 80 12" stroke="url(#arcGrad3)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Inner ring -->
+          <circle cx="80" cy="80" r="52" stroke="rgba(168,85,247,0.2)" stroke-width="1" stroke-dasharray="2 6"/>
+          <!-- Corner diamonds -->
+          <rect x="77" y="5" width="6" height="6" fill="var(--neon)" transform="rotate(45 80 8)" opacity="0.8"/>
+          <rect x="77" y="149" width="6" height="6" fill="var(--neon3)" transform="rotate(45 80 152)" opacity="0.6"/>
+          <defs>
+            <linearGradient id="arcGrad1" x1="80" y1="12" x2="148" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00dcff"/>
+              <stop offset="100%" stop-color="#a855f7"/>
+            </linearGradient>
+            <linearGradient id="arcGrad2" x1="148" y1="80" x2="80" y2="148" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#a855f7"/>
+              <stop offset="100%" stop-color="#ff2d6b"/>
+            </linearGradient>
+            <linearGradient id="arcGrad3" x1="12" y1="80" x2="80" y2="12" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#ff2d6b"/>
+              <stop offset="100%" stop-color="#00dcff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Center -->
+        <div class="logo-center">
+          <!-- NNRG orange box -->
+          <div style="
+            width:72px;height:72px;border-radius:18px;
+            background:linear-gradient(145deg,#e84a1a,#a82d08);
+            display:flex;align-items:center;justify-content:center;
+            box-shadow:0 0 30px rgba(232,74,26,0.5),0 4px 20px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.15);
+            position:relative;overflow:hidden;
+          ">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 60%);border-radius:18px"></div>
+            <span class="logo-text" style="font-size:26px;letter-spacing:2px">NNRG</span>
+          </div>
+        </div>
+
+        <!-- Orbiting dots -->
+        <div class="orbit-container">
+          <div class="orbit-dot"></div>
+        </div>
+        <div class="orbit-container2">
+          <div class="orbit-dot2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-eyebrow">// NNRG_NEURAL_PORTAL_v2.0</div>
+
+    <div class="hero-title">
+      <span class="line1">NALLA NARASIMHA</span>
+      <span class="line2 glitch" data-text="REDDY">REDDY</span>
+    </div>
+
+    <div class="hero-desc">
+      Group of Institutions — AI & ML Department<br>
+      <span style="color:var(--neon);font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:0.15em">CSM BRANCH · HYDERABAD</span>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">8</span>
+        <span class="stat-label">Semesters</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">40+</span>
+        <span class="stat-label">Subjects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">1K+</span>
+        <span class="stat-label">MCQs</span>
+      </div>
+    </div>
+  </div><!-- /hero -->
+
+  <!-- RIGHT LOGIN -->
+  <div class="login-side">
+    <div style="width:100%;max-width:460px">
+
+      <!-- Mobile only header -->
+      <div class="mobile-header">
+        <div class="mob-logo-box">NNRG</div>
+        <div class="mob-title">NNRG PORTAL</div>
+        <div class="mob-sub">AI &amp; ML — CSM BRANCH</div>
+      </div>
+
+      <!-- THE CARD -->
+      <div class="card" id="login-card">
+        <!-- Corners -->
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <!-- Header -->
+        <div class="card-head">
+          <div class="access-badge">
+            <div class="badge-dot"></div>
+            <span class="badge-text">Student Access</span>
+          </div>
+          <div class="card-title">
+            <em>Sign in</em> to your<br>portal
+          </div>
+          <div class="card-sub">CSM DEPARTMENT · AI &amp; ML BRANCH</div>
+        </div>
+
+        <div class="auth-mode-switch" role="tablist" aria-label="Portal access type">
+          <button type="button" class="auth-mode-btn active" id="mode-login" data-auth-mode-btn="login" role="tab" aria-selected="true">Already Registered</button>
+          <button type="button" class="auth-mode-btn" id="mode-register" data-auth-mode-btn="register" role="tab" aria-selected="false">First Time Here</button>
+        </div>
+        <div class="auth-mode-note" id="auth-mode-note">Use only roll number and password if your portal account already exists.</div>
+
+        <!-- Form -->
+        <form class="form" id="login-form" novalidate>
+
+          <!-- Full Name -->
+          <div class="field mode-hidden" id="field-nm" data-auth-mode="register">
+            <label class="field-label" for="nm">Full Name</label>
+            <div class="input-shell" id="shell-nm">
+              <div class="input-inner">
+                <div class="field-icon">👤</div>
+                <input class="inp" type="text" id="nm" placeholder="Enter your full name" autocomplete="name" spellcheck="false"/>
+              </div>
+            </div>
+            <div class="field-msg hint" id="nm-hint">As per your college ID</div>
+            <div class="field-msg error" id="nm-err"></div>
+          </div>
+
+          <!-- Department -->
+          <div class="field mode-hidden" id="field-dept" data-auth-mode="register">
+            <label class="field-label" for="dept">Department</label>
+            <div class="input-shell" id="shell-dept">
+              <div class="input-inner" style="position:relative">
+                <div class="field-icon">🏛️</div>
+                <select class="inp-select" id="dept" onchange="this.classList.toggle('has-value', this.value !== '')">
+                  <option value="" disabled selected>Select your department</option>
+                  <option value="AI & ML (CSM)">AI &amp; ML (CSM)</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="CSE">CSE</option>
+                  <option value="ECE">ECE</option>
+                  <option value="CIVIL">CIVIL</option>
+                </select>
+                <span class="select-arrow">▼ SELECT</span>
+              </div>
+            </div>
+            <div class="field-msg hint" id="dept-hint">Your branch at NNRG</div>
+            <div class="field-msg error" id="dept-err"></div>
+          </div>
+
+          <!-- Email -->
+          <div class="field mode-hidden" id="field-email" data-auth-mode="register">
+            <label class="field-label" for="email">Gmail Address</label>
+            <div class="input-shell" id="shell-email">
+              <div class="input-inner">
+                <div class="field-icon">@</div>
+                <input class="inp" type="email" id="email" placeholder="yourname@gmail.com" autocomplete="email" spellcheck="false"/>
+              </div>
+            </div>
+            <div class="field-msg hint" id="email-hint">Must be your registered Gmail address</div>
+            <div class="field-msg error" id="email-err"></div>
+          </div>
+
+          <!-- Roll Number -->
+          <div class="field" id="field-roll">
+            <label class="field-label" for="roll">Roll Number</label>
+            <div class="input-shell" id="shell-roll">
+              <div class="input-inner">
+                <div class="field-icon">🎫</div>
+                <input class="inp" type="text" id="roll" placeholder="E.G. 247Z1A6601" maxlength="12" autocomplete="username" spellcheck="false"/>
+              </div>
+            </div>
+            <div class="field-msg hint" id="roll-hint">Official college roll number</div>
+            <div class="field-msg error" id="roll-err"></div>
+          </div>
+
+          <!-- Password -->
+          <div class="field" id="field-pw">
+            <label class="field-label" for="pw">Password</label>
+            <div class="input-shell" id="shell-pw">
+              <div class="input-inner">
+                <div class="field-icon">🔑</div>
+                <input class="inp" type="password" id="pw" placeholder="Minimum 6 characters" autocomplete="current-password"/>
+                <button type="button" class="eye-btn" id="eye-btn">👁</button>
+              </div>
+            </div>
+            <div class="field-msg hint" id="pw-hint">You can use your roll number or any 6+ character password</div>
+            <div class="field-msg error" id="pw-err"></div>
+          </div>
+
+          <!-- Forgot Password -->
+          <div class="forgot-row" data-auth-mode="login">
+            <button type="button" class="forgot-btn" id="forgot-btn">
+              <span class="forgot-icon">⚡</span>
+              Forgot Password?
+              <span class="forgot-arrow">→</span>
+            </button>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-wrap">
+            <button type="submit" class="cta" id="cta-btn">
+              <div class="cta-bg"></div>
+              <div class="cta-shine"></div>
+              <div class="cta-glow"></div>
+              <div class="cta-content">
+                <span class="cta-text" id="cta-text">ENTER PORTAL</span>
+                <span class="cta-icon">→</span>
+                <div class="cta-spinner"></div>
+              </div>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+          <div class="div-line"></div>
+          <span class="div-text">NNRG · AI &amp; ML · CSM</span>
+          <div class="div-line"></div>
+        </div>
+
+        <!-- Info -->
+        <div class="info-panel">
+          <div class="info-row">
+            <div class="info-icon i-blue">🔒</div>
+            <div class="info-text">Built by <strong>NNRG CSM</strong> for NNRG students</div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon i-purple">🔑</div>
+            <div class="info-text">Returning login uses <strong>roll number + password</strong></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon i-green">✓</div>
+            <div class="info-text">Accounts can be reviewed and managed from Supabase</div>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="status-row">
+          <div class="status-led"></div>
+          <span class="status-text">SECURE CONNECTION ACTIVE</span>
+        </div>
+
+      </div><!-- /card -->
+    </div>
+  </div><!-- /login-side -->
+
+</div><!-- /page -->
+
+<!-- ══════════ FORGOT PASSWORD MODAL ══════════ -->
+<div class="fp-overlay" id="fp-overlay" onclick="closeFP()"></div>
+<div class="fp-modal" id="fp-modal" role="dialog" aria-modal="true">
+  <div class="fp-corner fp-tl"></div><div class="fp-corner fp-tr"></div>
+  <div class="fp-corner fp-bl"></div><div class="fp-corner fp-br"></div>
+  <button class="fp-close" onclick="closeFP()">✕</button>
+  <div class="fp-step" id="fp-step1">
+    <div class="fp-icon-wrap"><div class="fp-icon-ring"></div><div class="fp-icon-core">🔐</div></div>
+    <div class="fp-title">Reset Your Password</div>
+    <div class="fp-sub">Enter your roll number. We will send the reset link to the email registered for that roll number.</div>
+    <div class="fp-field">
+      <label class="fp-label">// ROLL NUMBER</label>
+      <div class="fp-input-shell" id="fp-shell"><div class="fp-input-inner"><div class="fp-field-icon">🎫</div><input class="fp-inp" type="text" id="fp-roll" placeholder="E.G. 247Z1A6601" maxlength="12" spellcheck="false"/></div></div>
+      <div class="fp-msg" id="fp-err"></div>
+    </div>
+    <button class="fp-cta" onclick="submitFP()"><div class="fp-cta-bg"></div><span class="fp-cta-text">VERIFY ROLL NUMBER</span><span class="fp-cta-icon">→</span><div class="fp-spinner" id="fp-spinner"></div></button>
+    <div class="fp-note"><span class="fp-note-dot"></span>No email typing needed. Recovery mail goes to the address saved by admin.</div>
+  </div>
+  <div class="fp-step fp-step-hidden" id="fp-step2">
+    <div class="fp-success-icon">✓</div>
+    <div class="fp-title">Reset Mail Sent</div>
+    <div class="fp-sub" id="fp-success-sub">Check your registered email for the secure password reset link.</div>
+    <div class="fp-instruction-box">
+      <div class="fp-instruction-row"><span class="fp-inst-num">01</span><span class="fp-inst-text">Open the mail from <strong>Supabase / NNRG Portal</strong>.</span></div>
+      <div class="fp-instruction-row"><span class="fp-inst-num">02</span><span class="fp-inst-text">Use the reset link to create your new password.</span></div>
+      <div class="fp-instruction-row"><span class="fp-inst-num">03</span><span class="fp-inst-text">After reset, return here and login with your roll number.</span></div>
+    </div>
+    <button class="fp-cta" onclick="closeFP()"><div class="fp-cta-bg"></div><span class="fp-cta-text">BACK TO LOGIN</span><span class="fp-cta-icon">↩</span></button>
+  </div>
+</div>
+
+<!-- RESET PASSWORD MODAL -->
+<div class="rp-overlay" id="rp-overlay"></div>
+<div class="rp-modal" id="rp-modal" role="dialog" aria-modal="true" aria-labelledby="rp-title">
+  <div class="fp-corner fp-tl"></div><div class="fp-corner fp-tr"></div>
+  <div class="fp-corner fp-bl"></div><div class="fp-corner fp-br"></div>
+  <button class="fp-close" type="button" onclick="closeResetPasswordModal()">X</button>
+  <div class="fp-success-icon">OK</div>
+  <div class="fp-title" id="rp-title">Create New Password</div>
+  <div class="fp-sub">Your reset link is verified. Set a new password for your portal account.</div>
+  <div class="rp-field">
+    <label class="fp-label">// NEW PASSWORD</label>
+    <div class="fp-input-shell" id="rp-new-shell">
+      <div class="fp-input-inner"><div class="fp-field-icon">KEY</div><input class="rp-inp" type="password" id="rp-new-password" placeholder="Minimum 6 characters" autocomplete="new-password"></div>
+    </div>
+  </div>
+  <div class="rp-field">
+    <label class="fp-label">// CONFIRM PASSWORD</label>
+    <div class="fp-input-shell" id="rp-confirm-shell">
+      <div class="fp-input-inner"><div class="fp-field-icon">LOCK</div><input class="rp-inp" type="password" id="rp-confirm-password" placeholder="Re-enter new password" autocomplete="new-password"></div>
+    </div>
+  </div>
+  <div class="rp-msg" id="rp-msg"></div>
+  <button class="fp-cta" id="rp-submit" type="button" onclick="submitResetPassword()"><div class="fp-cta-bg"></div><span class="fp-cta-text">UPDATE PASSWORD</span><span class="fp-cta-icon">-&gt;</span><div class="fp-spinner"></div></button>
+  <div class="rp-security-note">After updating, you will be signed out and can login again with your roll number and new password.</div>
+</div>
+<script>
+/* ═══════════════════════════════════════
+   NEURAL BACKGROUND — LIVING NETWORK
+═══════════════════════════════════════ */
+(function() {
+  const canvas = document.getElementById('neural-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [], mouse = { x: -999, y: -999 };
+  const MAX_DIST = 160;
+  const DARK = () => document.documentElement.getAttribute('data-theme') !== 'light';
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initNodes() {
+    nodes = [];
+    const count = Math.min(Math.floor(W * H / 10000), 80);
+    for (let i = 0; i < count; i++) {
+      const hue = Math.random() < 0.5 ? 185 : (Math.random() < 0.5 ? 280 : 340);
+      nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+        r: Math.random() * 2 + 0.8,
+        a: Math.random() * 0.6 + 0.3,
+        hue, pulseOffset: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.01 + Math.random() * 0.02
+      });
+    }
+  }
+
+  let tick = 0;
+  function draw() {
+    tick++;
+    const dark = DARK();
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < MAX_DIST) {
+          const alpha = (1 - d / MAX_DIST) * 0.18;
+          const hue = (nodes[i].hue + nodes[j].hue) / 2;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = dark
+            ? `hsla(${hue}, 100%, 65%, ${alpha})`
+            : `hsla(${hue}, 70%, 35%, ${alpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n => {
+      const dx = n.x - mouse.x, dy = n.y - mouse.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 180) {
+        const alpha = (1 - d / 180) * 0.3;
+        ctx.beginPath();
+        ctx.moveTo(n.x, n.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = dark ? `rgba(0,220,255,${alpha})` : `rgba(0,100,200,${alpha})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    });
+    nodes.forEach(n => {
+      const pulse = Math.sin(tick * n.pulseSpeed + n.pulseOffset) * 0.3 + 0.7;
+      const col = dark
+        ? `hsla(${n.hue}, 100%, 70%, ${n.a * pulse})`
+        : `hsla(${n.hue + 100}, 70%, 35%, ${n.a * pulse * 0.7})`;
+      const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 8);
+      grd.addColorStop(0, dark ? `hsla(${n.hue},100%,70%,${0.15 * pulse})` : `hsla(${n.hue+100},70%,35%,${0.08 * pulse})`);
+      grd.addColorStop(1, 'transparent');
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 8, 0, Math.PI * 2);
+      ctx.fillStyle = grd; ctx.fill();
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = col; ctx.fill();
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < -20) n.x = W + 20; if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20; if (n.y > H + 20) n.y = -20;
+      const mdx = n.x - mouse.x, mdy = n.y - mouse.y;
+      const md = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (md < 100) { n.vx += (mdx / md) * 0.3; n.vy += (mdy / md) * 0.3; }
+      const speed = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
+      if (speed > 1.5) { n.vx *= 0.95; n.vy *= 0.95; }
+    });
+    requestAnimationFrame(draw);
+  }
+
+  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  document.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+  resize(); initNodes(); draw();
+})();
+
+/* ═══ CUSTOM CURSOR ═══ */
+(function() {
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  let rx = 0, ry = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  const hoverEls = document.querySelectorAll('button, input, select, a, .stat');
+  hoverEls.forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+  });
+})();
+
+/* ═══ 3D CARD TILT ═══ */
+(function() {
+  const card = document.getElementById('login-card');
+  if (window.innerWidth < 960) return;
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `perspective(1200px) rotateY(${x * 8}deg) rotateX(${-y * 5}deg) scale3d(1.015, 1.015, 1.015)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg) scale3d(1,1,1)';
+  });
+})();
+
+/* ═══ THEME ═══ */
+let theme = localStorage.getItem('nnrg-theme') || 'dark';
+applyTheme(theme);
+document.getElementById('theme-btn').addEventListener('click', () => {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  applyTheme(theme);
+  localStorage.setItem('nnrg-theme', theme);
+});
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '🌙' : '☀️';
+}
+
+/* ═══ PASSWORD EYE ═══ */
+const pwEl = document.getElementById('pw');
+let vis = false;
+document.getElementById('eye-btn').addEventListener('click', () => {
+  vis = !vis;
+  pwEl.type = vis ? 'text' : 'password';
+  document.getElementById('eye-btn').textContent = vis ? '🙈' : '👁';
+});
+
+/* ═══ ROLL UPPERCASE ═══ */
+document.getElementById('roll').addEventListener('input', function() {
+  this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+});
+
+/* ═══ FIELD UI HELPERS ═══ */
+function showHint(id) {
+  const hint = document.getElementById(id + '-hint');
+  const err  = document.getElementById(id + '-err');
+  const shell = document.getElementById('shell-' + id);
+  if (hint) { hint.classList.add('visible'); hint.classList.remove('error'); }
+  if (err)  err.classList.remove('visible');
+  if (shell) shell.closest('.field').classList.remove('field-shell-error');
+}
+
+function showErr(id, msg) {
+  const hint  = document.getElementById(id + '-hint');
+  const err   = document.getElementById(id + '-err');
+  const inp   = document.getElementById(id);
+  const shell = document.getElementById('shell-' + id);
+  if (hint) hint.classList.remove('visible');
+  if (err)  { err.textContent = '⚡ ' + msg; err.classList.add('visible'); }
+  if (inp)  { inp.classList.add('inp-error'); inp.classList.remove('inp-success'); }
+  if (shell) shell.closest('.field').classList.add('field-shell-error');
+}
+
+function setOk(id) {
+  const inp   = document.getElementById(id);
+  const shell = document.getElementById('shell-' + id);
+  if (inp) { inp.classList.remove('inp-error'); inp.classList.add('inp-success'); }
+  if (shell) shell.closest('.field').classList.remove('field-shell-error');
+  showHint(id);
+}
+
+/* ═══ VALIDATION ═══ */
+function validateField(id) {
+  const el = document.getElementById(id);
+  const v  = el.value.trim();
+  if (id === 'nm') {
+    if (v.length < 2) { showErr(id, 'Enter your full name'); return false; }
+    setOk(id); return true;
+  }
+  if (id === 'dept') {
+    if (!v) { showErr(id, 'Select your department'); return false; }
+    setOk(id); return true;
+  }
+  if (id === 'email') {
+    const email = v.toLowerCase();
+    if (!email.includes('@')) { showErr(id, 'Email must contain @'); return false; }
+    if (!email.endsWith('@gmail.com')) { showErr(id, 'Only Gmail addresses are allowed'); return false; }
+    if (email.length < 11) { showErr(id, 'Enter a valid Gmail address'); return false; }
+    setOk(id); return true;
+  }
+  if (id === 'roll') {
+    if (v.length < 6) { showErr(id, 'Enter a valid roll number'); return false; }
+    setOk(id); return true;
+  }
+  if (id === 'pw') {
+    if (el.value.length < 6) { showErr(id, 'Minimum 6 characters'); return false; }
+    setOk(id); return true;
+  }
+  return true;
+}
+
+['nm', 'dept', 'email', 'roll', 'pw'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('focus', () => showHint(id));
+  el.addEventListener('blur',  () => validateField(id));
+});
+
+/* ═══ TOAST ═══ */
+let toastTimer;
+function showToast(msg, type = 'err') {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-icon').textContent = type === 'ok' ? '✓' : '⚡';
+  document.getElementById('toast-msg').textContent  = msg;
+  t.className = 'toast ' + type + ' show';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3800);
+}
+
+/* SUPABASE AUTH */
+const SUPABASE_URL = 'https://ldmpntlouqaynldqklse.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbXBudGxvdXFheW5sZHFrbHNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwMzY4MzEsImV4cCI6MjA5MjYxMjgzMX0.axpvrV34kOgnezZ1sQXn54cQbg5XSBblQw6Gt0sWQd8';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let authMode = 'login';
+const loginFields = ['roll', 'pw'];
+const registerFields = ['nm', 'dept', 'email', 'roll', 'pw'];
+
+function requiredFieldsForMode() {
+  return authMode === 'register' ? registerFields : loginFields;
+}
+
+function clearFieldState(id) {
+  const inp = document.getElementById(id);
+  const err = document.getElementById(id + '-err');
+  const hint = document.getElementById(id + '-hint');
+  const shell = document.getElementById('shell-' + id);
+  if (inp) inp.classList.remove('inp-error', 'inp-success');
+  if (err) {
+    err.textContent = '';
+    err.classList.remove('visible');
+  }
+  if (hint) hint.classList.remove('visible', 'error');
+  if (shell) shell.closest('.field').classList.remove('field-shell-error');
+}
+
+function setAuthMode(mode) {
+  authMode = mode === 'register' ? 'register' : 'login';
+
+  document.querySelectorAll('[data-auth-mode-btn]').forEach(btn => {
+    const active = btn.dataset.authModeBtn === authMode;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-selected', String(active));
+  });
+
+  document.querySelectorAll('[data-auth-mode]').forEach(el => {
+    el.classList.toggle('mode-hidden', el.dataset.authMode !== authMode);
+  });
+
+  const note = document.getElementById('auth-mode-note');
+  const ctaText = document.getElementById('cta-text');
+  const pw = document.getElementById('pw');
+  const email = document.getElementById('email');
+  if (authMode === 'register') {
+    note.textContent = 'First-time students must register once with full details and Gmail recovery.';
+    ctaText.textContent = 'CREATE ACCESS';
+    pw.autocomplete = 'new-password';
+    email.setAttribute('required', 'required');
+  } else {
+    note.textContent = 'Use only roll number and password if your portal account already exists.';
+    ctaText.textContent = 'ENTER PORTAL';
+    pw.autocomplete = 'current-password';
+    email.removeAttribute('required');
+  }
+
+  ['nm', 'dept', 'email', 'roll', 'pw'].forEach(clearFieldState);
+}
+
+function normalizeText(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function maskEmail(email) {
+  const [name, domain] = String(email || '').split('@');
+  if (!name || !domain) return 'your registered email';
+  return name.slice(0, 2) + '***@' + domain;
+}
+
+async function findStudentByRoll(roll) {
+  const { data, error } = await supabaseClient
+    .rpc('student_login_by_roll', { p_roll_number: roll });
+
+  if (error) throw new Error('Could not verify roll number. Check Supabase login RPC setup.');
+  const student = Array.isArray(data) ? data[0] : data;
+  if (!student) return null;
+  if (student.is_active === false) throw new Error('This student account is disabled. Contact portal admin.');
+  if (!student.email) throw new Error('No email is linked to this roll number. Contact portal admin.');
+  return student;
+}
+
+async function createStudentProfile({ name, roll, department, email }) {
+  const { data, error } = await supabaseClient
+    .rpc('student_register_profile', {
+      p_name: name,
+      p_roll_number: roll,
+      p_department: department,
+      p_email: email
+    });
+
+  if (error) {
+    if (error.code === '23505') {
+      const existing = await findStudentByRoll(roll);
+      if (existing) return existing;
+      throw new Error('This roll number or Gmail already exists. Try logging in instead.');
+    }
+    throw new Error(error.message || 'Could not create student profile. Check student_register_profile RPC in Supabase.');
+  }
+
+  const student = Array.isArray(data) ? data[0] : data;
+  return student;
+}
+
+function saveStudentAndOpen(student) {
+  localStorage.setItem('nnrg_student', JSON.stringify({
+    id: student.id || null,
+    name: student.name,
+    roll_number: student.roll_number,
+    department: student.department,
+    year: student.year || 'Student'
+  }));
+
+  setTimeout(() => { window.location.href = 'welcome.html'; }, 120);
+}
+
+function verifyStudentProfile(student, enteredName, enteredDept) {
+  const dbName = normalizeText(student.name);
+  const typedName = normalizeText(enteredName);
+  const dbDept = normalizeText(student.department);
+  const typedDept = normalizeText(enteredDept);
+
+  if (dbName && typedName && !dbName.includes(typedName.slice(0, 4)) && !typedName.includes(dbName.slice(0, 4))) {
+    throw new Error('Name does not match our records');
+  }
+
+  if (dbDept && typedDept && dbDept !== typedDept && !dbDept.includes(typedDept) && !typedDept.includes(dbDept)) {
+    throw new Error('Department does not match our records');
+  }
+}
+
+function verifyStudentEmail(student, enteredEmail) {
+  const dbEmail = String(student.email || '').trim().toLowerCase();
+  const typedEmail = String(enteredEmail || '').trim().toLowerCase();
+
+  if (!typedEmail.includes('@') || !typedEmail.endsWith('@gmail.com')) {
+    throw new Error('Use a valid Gmail address ending with @gmail.com');
+  }
+
+  if (dbEmail !== typedEmail) {
+    throw new Error('Email does not match this roll number');
+  }
+}
+
+function explainSignUpFailure(error, roll) {
+  const message = String(error?.message || '').toLowerCase();
+  if (message.includes('already') || message.includes('registered') || message.includes('exists')) {
+    return 'This Gmail already exists in Supabase Auth, but roll number ' + roll + ' is not in student records. Ask admin to link this Gmail to your roll number or delete the old Auth user before registering again.';
+  }
+  return error?.message || 'Could not create login. Try another Gmail or password.';
+}
+
+let resetPasswordSessionActive = false;
+
+function openResetPasswordModal() {
+  resetPasswordSessionActive = true;
+  const msg = document.getElementById('rp-msg');
+  const newPassword = document.getElementById('rp-new-password');
+  const confirmPassword = document.getElementById('rp-confirm-password');
+  if (msg) msg.textContent = '';
+  if (newPassword) newPassword.value = '';
+  if (confirmPassword) confirmPassword.value = '';
+  document.getElementById('rp-new-shell')?.classList.remove('fp-err-shell');
+  document.getElementById('rp-confirm-shell')?.classList.remove('fp-err-shell');
+  document.getElementById('rp-overlay')?.classList.add('open');
+  document.getElementById('rp-modal')?.classList.add('open');
+  setTimeout(() => newPassword?.focus(), 250);
+}
+
+function closeResetPasswordModal() {
+  document.getElementById('rp-overlay')?.classList.remove('open');
+  document.getElementById('rp-modal')?.classList.remove('open');
+  if (resetPasswordSessionActive) {
+    showToast('Password reset is still pending. Use the reset link again if you close this window.', 'err');
+  }
+}
+
+async function submitResetPassword() {
+  const newPassword = document.getElementById('rp-new-password')?.value || '';
+  const confirmPassword = document.getElementById('rp-confirm-password')?.value || '';
+  const msg = document.getElementById('rp-msg');
+  const btn = document.getElementById('rp-submit');
+  const newShell = document.getElementById('rp-new-shell');
+  const confirmShell = document.getElementById('rp-confirm-shell');
+
+  msg.textContent = '';
+  newShell.classList.remove('fp-err-shell');
+  confirmShell.classList.remove('fp-err-shell');
+
+  if (newPassword.length < 6) {
+    msg.textContent = 'Use at least 6 characters.';
+    newShell.classList.add('fp-err-shell');
+    document.getElementById('rp-new-password')?.focus();
+    return;
+  }
+
+  if (newPassword !== confirmPassword) {
+    msg.textContent = 'Passwords do not match.';
+    confirmShell.classList.add('fp-err-shell');
+    document.getElementById('rp-confirm-password')?.focus();
+    return;
+  }
+
+  btn.classList.add('fp-loading');
+  try {
+    const { error } = await supabaseClient.auth.updateUser({ password: newPassword });
+    if (error) throw error;
+    resetPasswordSessionActive = false;
+    document.getElementById('rp-overlay')?.classList.remove('open');
+    document.getElementById('rp-modal')?.classList.remove('open');
+    showToast('Password updated. Please login again.', 'ok');
+    await supabaseClient.auth.signOut();
+    localStorage.removeItem('nnrg_student');
+  } catch (error) {
+    msg.textContent = error.message || 'Could not update password. Try the reset link again.';
+  } finally {
+    btn.classList.remove('fp-loading');
+  }
+}
+
+supabaseClient.auth.onAuthStateChange(async (event) => {
+  if (event !== 'PASSWORD_RECOVERY') return;
+  openResetPasswordModal();
+});
+
+document.querySelectorAll('[data-auth-mode-btn]').forEach(btn => {
+  btn.addEventListener('click', () => setAuthMode(btn.dataset.authModeBtn));
+});
+setAuthMode('login');
+
+/* FORM SUBMIT - SUPABASE */
+document.getElementById('login-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  let valid = true;
+  requiredFieldsForMode().forEach(id => { if (!validateField(id)) valid = false; });
+  if (!valid) return;
+
+  const enteredName = document.getElementById('nm').value.trim();
+  const enteredDept = document.getElementById('dept').value;
+  const enteredEmail = document.getElementById('email').value.trim().toLowerCase();
+  const roll = document.getElementById('roll').value.trim();
+  const password = document.getElementById('pw').value;
+  const cta = document.getElementById('cta-btn');
+
+  cta.classList.add('loading');
+
+  try {
+    let student = await findStudentByRoll(roll);
+
+    if (authMode === 'login') {
+      if (!student) {
+        throw new Error('No student profile found for this roll number. Use First Time Here if this is your first visit.');
+      }
+
+      const { error } = await supabaseClient.auth.signInWithPassword({
+        email: student.email,
+        password
+      });
+
+      if (error) {
+        throw new Error('Incorrect roll number or password. Use forgot password if you cannot remember it.');
+      }
+
+      showToast('Access granted - initialising portal...', 'ok');
+      saveStudentAndOpen(student);
+      return;
+    }
+
+    if (student) {
+      throw new Error('This roll number is already registered. Use Already Registered with roll number and password.');
+    }
+
+    if (!student) {
+      const { error: signUpError } = await supabaseClient.auth.signUp({
+        email: enteredEmail,
+        password,
+        options: {
+          data: {
+            name: enteredName,
+            roll_number: roll,
+            department: enteredDept
+          }
+        }
+      });
+
+      if (signUpError) {
+        throw new Error(explainSignUpFailure(signUpError, roll));
+      }
+
+      student = await createStudentProfile({
+        name: enteredName,
+        roll,
+        department: enteredDept,
+        email: enteredEmail
+      });
+
+      showToast('Account created - opening portal...', 'ok');
+      saveStudentAndOpen(student);
+      return;
+    }
+  } catch (err) {
+    cta.classList.remove('loading');
+    showToast(err.message || 'Authentication failed. Try again.', 'err');
+    document.getElementById('pw').value = '';
+    document.getElementById('pw').classList.remove('inp-success', 'inp-error');
+  }
+});
+
+/* ═══ FORGOT PASSWORD MODAL ═══ */
+document.getElementById('forgot-btn').addEventListener('click', openFP);
+
+function openFP() {
+  document.getElementById('fp-roll').value = '';
+  document.getElementById('fp-err').textContent = '';
+  document.getElementById('fp-shell').classList.remove('fp-err-shell');
+  document.getElementById('fp-step1').classList.remove('fp-step-hidden');
+  document.getElementById('fp-step2').classList.add('fp-step-hidden');
+  document.getElementById('fp-overlay').classList.add('open');
+  document.getElementById('fp-modal').classList.add('open');
+  setTimeout(() => document.getElementById('fp-roll').focus(), 400);
+}
+
+function closeFP() {
+  document.getElementById('fp-overlay').classList.remove('open');
+  document.getElementById('fp-modal').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeFP();
+    closeResetPasswordModal();
+  }
+});
+
+document.getElementById('fp-roll').addEventListener('input', function() {
+  this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+});
+
+async function submitFP() {
+  const roll  = document.getElementById('fp-roll').value.trim();
+  const errEl = document.getElementById('fp-err');
+  const shell = document.getElementById('fp-shell');
+  const btn   = document.querySelector('#fp-step1 .fp-cta');
+
+  errEl.textContent = '';
+  shell.classList.remove('fp-err-shell');
+
+  if (roll.length < 6) {
+    errEl.textContent = 'Enter a valid roll number';
+    shell.classList.add('fp-err-shell');
+    document.getElementById('fp-roll').focus();
+    return;
+  }
+
+  btn.classList.add('fp-loading');
+
+  try {
+    const student = await findStudentByRoll(roll);
+    if (!student) {
+      throw new Error('No registered student found for this roll number. Please check the roll number or contact admin.');
+    }
+    const redirectTo = new URL('login.html', window.location.href).href;
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(student.email, { redirectTo });
+    if (error) throw error;
+
+    btn.classList.remove('fp-loading');
+    const sub = document.getElementById('fp-success-sub');
+    if (sub) sub.textContent = 'We sent a reset link to ' + maskEmail(student.email) + '.';
+    document.getElementById('fp-step1').classList.add('fp-step-hidden');
+    document.getElementById('fp-step2').classList.remove('fp-step-hidden');
+  } catch (err) {
+    btn.classList.remove('fp-loading');
+    errEl.textContent = err.message || 'Could not send reset email. Please try again.';
+    shell.classList.add('fp-err-shell');
+  }
+}
+
+
+</script>
+
+</body>
+</html>
