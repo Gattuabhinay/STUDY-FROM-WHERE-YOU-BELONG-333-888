@@ -353,6 +353,23 @@
       font-size: 22px;
     }
 
+    .floating-menu-toggle {
+      display: none;
+      position: fixed;
+      left: 14px;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+      z-index: 105;
+      width: 54px;
+      height: 54px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--surface-2) 94%, transparent);
+      color: var(--text);
+      font-size: 25px;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.28);
+      backdrop-filter: blur(14px);
+    }
+
     .top-title {
       min-width: 170px;
     }
@@ -3941,6 +3958,13 @@
         width: 48px;
         height: 48px;
       }
+      .floating-menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+      body.sidebar-open .floating-menu-toggle {
+        display: none;
+      }
       .topbar {
         position: sticky;
         top: 0;
@@ -4412,6 +4436,12 @@
         height: 46px;
         font-size: 24px;
       }
+      .floating-menu-toggle {
+        left: 12px;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        width: 52px;
+        height: 52px;
+      }
       .top-title h1 {
         font-size: 18px;
       }
@@ -4554,6 +4584,7 @@
 </head>
 <body>
   <div class="overlay" id="overlay"></div>
+  <button class="floating-menu-toggle" id="floatingMenuToggle" type="button" aria-label="Open menu">☰</button>
   <div class="app">
     <aside class="sidebar" aria-label="Main navigation">
       <div class="brand">
@@ -9340,7 +9371,10 @@
       if (event.key === "ArrowRight") moveLightbox(1);
     });
 
-    menuToggle.addEventListener("click", () => document.body.classList.add("sidebar-open"));
+    const floatingMenuToggle = document.getElementById("floatingMenuToggle");
+    const openSidebarMenu = () => document.body.classList.add("sidebar-open");
+    menuToggle.addEventListener("click", openSidebarMenu);
+    if (floatingMenuToggle) floatingMenuToggle.addEventListener("click", openSidebarMenu);
     overlay.addEventListener("click", () => document.body.classList.remove("sidebar-open"));
     document.getElementById("themeToggle").addEventListener("click", () => {
       const next = (document.documentElement.getAttribute("data-theme") || "light") === "dark" ? "light" : "dark";
